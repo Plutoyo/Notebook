@@ -57,6 +57,11 @@
    	*dp*[*i*]=min(*dp*[*i*−1]+*cost*[*i*−1],*dp*[*i*−2]+*cost*[*i*−2]) 
 
   dp[i]代表第i层时所花费的最小代价,由于能够跨一层或者两层,所以需要考虑是从$$dp[i-1]$$转移来还是$$dp[i-2]$$转移来
+  
++ #### [剑指 Offer 58 - II. 左旋转字符串](https://leetcode-cn.com/problems/zuo-xuan-zhuan-zi-fu-chuan-lcof/)
 
+   记住字符串取子串函数s.substr(起始位置,长度)
 
-
+   ```C++
+   string substr (size_t pos = 0, size_t len = npos) const;
+   ```
