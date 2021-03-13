@@ -1,18 +1,22 @@
 import os
 
-f = open(r".\_sidebar.md", 'w')
+f = open(r"./_sidebar.md", 'w')
 exclude = set([".git"])
-for root, dirs, files in os.walk(r".\\"):
+for root, dirs, files in os.walk(r"./"):
     dirs[:] = [d for d in set(dirs) - exclude]
-    files[:] = [f for f in files if f.split('.')[1] == 'md' and f[0] != '_']
-
-    s1 = "- **" + root.split('\\')[-1] + "**\n"
-    if root.split('\\')[-1]!="":
+    files[:] = [file for file in files if file.split('.')[1] == 'md' and file[0] != '_']
+    if root!="./":
+        root=root.split('/')[1]
+        s1 = "- **" + root + "**\n"
         f.write(s1)
+        print(s1)
         for file in files:
-            s2 = "   - [" + file.split('.')[0] + '](' + file + ")\n"
+            s2 = "   - [" + file.split('.')[0] + '](' + root+'/'+file + ")\n"
             f.write(s2)
+            print(s2)
     else:
         for file in files:
-            s2 = "- [" + file.split('.')[0] + '](' + file + ")\n"
+            s2 = "- [" + file.split('.')[0] + ']('+file + ")\n"
             f.write(s2)
+            print(s2)
+f.close()
